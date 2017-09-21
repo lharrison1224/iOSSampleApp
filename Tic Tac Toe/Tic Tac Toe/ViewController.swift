@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var activePlayer = 1 //Cross
+    var boardArray = Array(repeating: 0, count: 10)
     @IBOutlet weak var text: UILabel!
     
     @IBOutlet weak var button1: UIButton!
@@ -53,11 +54,15 @@ class ViewController: UIViewController {
             sender.setImage(UIImage(named: "Cross.png"), for: UIControlState())
             activePlayer = 2
             self.text.text = "O's Turn"
+            boardArray[sender.tag] = 1
+            checkWin()
         }
         else {
             sender.setImage(UIImage(named: "Nought.png"), for: UIControlState())
             activePlayer = 1
             self.text.text = "X's Turn"
+            boardArray[sender.tag] = 2
+            checkWin()
         }
     }
     
@@ -69,6 +74,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkWin(){
+        
     }
 
 
